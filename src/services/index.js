@@ -1,1 +1,3 @@
-module.exports = {}
+module.exports = {
+    TickerService: require('./email-service')
+}
