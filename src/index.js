@@ -5,9 +5,9 @@ const amqplib = require('amqplib');
 
 async function connectQueue() {
     try {
-        const connection = await amqplib.connect('amqp://localhost');
+        const connection = await amqplib.connect(ServerConfig.RABBIT_MQ_URL);
         const channel = await connection.createChannel();
-        await channel.consume('noti-queue', async (data) => {
+        await channel.consume(ServerConfig.NOTI_QUEUE, async (data) => {
             const object = JSON.parse(`${Buffer.from(data.content)}`);
             await TicketService.sendMail(
                 ServerConfig.GMAIL_USER,
