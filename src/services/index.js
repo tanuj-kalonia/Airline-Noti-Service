@@ -1,3 +1,3 @@
 module.exports = {
-    TickerService: require('./email-service')
+    TicketService: require('./email-service')
 }
